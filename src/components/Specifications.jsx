@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { FaAngleDown, FaAngleUp } from '../assets/icons/react-icons';
 import PowerBrick  from '../assets/img/battery/PowerBrick.webp';
 import AllBlack  from '../assets/img/solar/AllBlack.webp';
 import inverter  from '../assets/img/inverter/inverter.webp';
 
 
-// --- 1. Product Data (Consolidated) ---
 const products = [
   {
     id: 'powerbrick',
@@ -38,23 +38,10 @@ const products = [
   }
 ];
 
-// --- 2. ProductDropdown Component (Child) ---
-
-// Arrow Down SVG for the toggle button
-const ArrowDownIcon = ({ isOpen }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : 'rotate-0'}`} 
-    viewBox="0 0 20 20" 
-    fill="currentColor"
-  >
-    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-  </svg>
-);
 
 const ProductDropdown = ({ product, isSelected, onSelect }) => {
   const handleSelect = () => {
-    onSelect(product.id); // Notify parent of selection
+    onSelect(product.id);
   };
 
   return (
@@ -64,7 +51,6 @@ const ProductDropdown = ({ product, isSelected, onSelect }) => {
       transition-all duration-300 ease-in-out shadow-lg
       ${isSelected ? 'border-blue-500 shadow-lg bg-blue-50' : 'border-gray-200 bg-white hover:border-gray-300'}
     `}>
-      {/* Header (Clickable Area) */}
       <div 
         className="flex items-center p-4 cursor-pointer" 
         onClick={handleSelect}
@@ -78,10 +64,11 @@ const ProductDropdown = ({ product, isSelected, onSelect }) => {
           <p className="text-xs text-gray-600">{product.power}</p>
           <h3 className="text-lg font-semibold text-gray-800 leading-tight">{product.name}</h3>
         </div>
-        <ArrowDownIcon isOpen={isSelected} />
+        <div className="transition-all duration-300">
+          {isSelected ? <FaAngleUp /> : <FaAngleDown />}
+        </div>
       </div>
 
-      {/* Collapsible Content */}
       {isSelected && (
         <div 
           id={`product-details-${product.id}`} 
@@ -105,7 +92,6 @@ const ProductDropdown = ({ product, isSelected, onSelect }) => {
 };
 
 
-// --- 3. ProductSelector Component (Right Column) ---
 const ProductSelector = ({ products, selectedProductId, onSelectProduct }) => {
   return (
     <div className="h-full flex flex-col">
@@ -122,7 +108,6 @@ const ProductSelector = ({ products, selectedProductId, onSelectProduct }) => {
 };
 
 
-// --- 4. SystemFlowDisplay Component (Left Column) ---
 const SystemFlowDisplay = ({ selectedProduct }) => {
   return (
     <div className="h-full flex flex-col">      
@@ -144,17 +129,12 @@ const SystemFlowDisplay = ({ selectedProduct }) => {
 };
 
 
-// --- 5. SystemFlowLayout Component (Root) ---
 export const Specifications = () => {
-  // State to track the currently selected product ID
-  // Initialize with the first product
   const [selectedProductId, setSelectedProductId] = useState(products[0]?.id || null);
-
-  // Find the full product object based on the selected ID
   const selectedProduct = products.find(p => p.id === selectedProductId);
 
   return (
-    <div className="flex items-start justify-center p-4 sm:p-6 lg:py-20">
+    <div id="specifications"  className="flex items-start justify-center p-4 sm:p-6 lg:py-20">
     <div className="flex flex-col w-full max-w-7xl">
         
         <div className="flex flex-col lg:flex-row w-full overflow-hidden gap-2">

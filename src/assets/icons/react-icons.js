@@ -13,7 +13,7 @@ import {
   FaXmark,
 } from 'react-icons/fa6';
 
-import { FaCalendarCheck } from "react-icons/fa";
+import { FaCalendarCheck, FaAngleDown, FaAngleUp  } from "react-icons/fa";
 
 export {
   FaChartLine as Activity,
@@ -28,5 +28,7 @@ export {
   FaArrowTrendUp as TrendingUp,
   FaXmark as X,
   FaBolt as Zap,
-  FaCalendarCheck as FaCalendarCheck
+  FaCalendarCheck as FaCalendarCheck,
+  FaAngleDown as FaAngleDown,
+  FaAngleUp  as FaAngleUp 
 };

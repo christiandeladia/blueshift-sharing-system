@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Data for the FAQ items
 const faqs = [
   {
     id: 1,
@@ -29,18 +28,15 @@ const faqs = [
   }
 ];
 
-// Reusable component for a single FAQ item
 const FaqItem = ({ question, answer, id }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Split the answer by newline characters to render paragraphs correctly
   const paragraphs = answer.split('\n\n');
 
   return (
     <div className="border-t border-gray-700 py-3 px-2 md:px-0">
       <div className="flex items-center justify-between cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
         <div className="flex items-center grow">
-          {/* Toggle Button/Icon Container */}
           <button
             className="shrink-0 flex justify-center items-center w-8 h-8 md:w-9 md:h-9 rounded-full border border-white text-white hover:bg-white hover:text-black transition-colors mr-4"
             type="button"
@@ -48,7 +44,6 @@ const FaqItem = ({ question, answer, id }) => {
             aria-controls={`faqCollapse${id}`}
             aria-label={`Toggle FAQ: ${question}`}
           >
-            {/* Using an inline SVG for the arrow down icon, rotating it for toggle effect */}
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               width="1em" 
@@ -61,14 +56,12 @@ const FaqItem = ({ question, answer, id }) => {
             </svg>
           </button>
           
-          {/* Question Text */}
           <p className="text-lg font-medium leading-tight text-white m-0">
             {question}
           </p>
         </div>
       </div>
       
-      {/* Collapse Content Area */}
       <div 
         id={`faqCollapse${id}`} 
         className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
@@ -76,7 +69,6 @@ const FaqItem = ({ question, answer, id }) => {
       >
         <div className="pl-12 pt-4 text-gray-300">
           {paragraphs.map((p, index) => (
-            // Simple rendering of paragraphs. Handling the embedded link in FAQ 3 is simplified here.
             <p key={index} className="mb-4 last:mb-0">
               {p.split('click here.').map((part, partIndex) => (
                 <React.Fragment key={partIndex}>
@@ -96,17 +88,13 @@ const FaqItem = ({ question, answer, id }) => {
   );
 };
 
-// Main FAQ Section Component
 export const FaqSection = () => {
   return (
-    // Equivalent to section with background, margin-top, and padding
     <section id="faq" className=" py-12 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Title Area */}
         <h1 className="text-4xl font-bold mb-8">FAQ</h1>
         
-        {/* FAQ Grid Layout - The original used two columns side-by-side on large screens */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-4">
           
           {faqs.map((faq) => (

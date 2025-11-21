@@ -2,20 +2,6 @@ import { ArrowRight, Star, FaCalendarCheck } from "../assets/icons/react-icons";
 import homes_img from "../assets/img/project/homes_img.webp";
 
 export function HeroSection() {
-  const agents = [
-    {
-      url: "https://images.unsplash.com/photo-1762341120638-b5b9358ef571?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBlcnNvbnxlbnwxfHx8fDE3NjM0MDY1Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzUxMjQxOHww&ixlib=rb-4.1.0&q=80&w=1080",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1hbiUyMGhlYWRzaG90fGVufDF8fHx8MTc2MzQ3Mzk0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1649589244330-09ca58e4fa64?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMHdvbWFufGVufDF8fHx8MTc2MzQyMDIwM3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    },
-  ];
 
   return (
     <section className="mx-4 md:mx-8 mt-2">
@@ -80,25 +66,21 @@ export function HeroSection() {
 <div className="absolute bottom-6 right-6">
             <div 
               className="rounded-2xl px-4 py-2 flex items-center gap-2 shadow-xl
-                         bg-white/5  backdrop-blur-xs border border-white/10" // 💡 Glassmorphism styles
+                         bg-white/5  backdrop-blur-xs border border-white/10"
             >
               
-              {/* Icon Container */}
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10"> {/* Icon background also made slightly transparent */}
-                <FaCalendarCheck className="w-6 h-6 text-white" /> {/* Icon color changed for better contrast */}
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10"> 
+                <FaCalendarCheck className="w-6 h-6 text-white" /> 
               </div>
               
-              {/* Date Text Content */}
               <div className="flex flex-col items-start justify-center">
                 
-                {/* Top: Date Installed */}
-                <div className="text-white text-base font-semibold whitespace-nowrap"> {/* Text color changed to white for contrast */}
+                <div className="text-white text-base font-semibold whitespace-nowrap"> 
                   Date Installed
                 </div>
                 
-                {/* Bottom: The Actual Date */}
-                <div className="text-white/80 text-sm"> {/* Text color changed to white/80 */}
-                  10/25/2024 {/* Replace with actual date or prop */}
+                <div className="text-white/80 text-sm">
+                  10/25/2024
                 </div>
                 
               </div>
